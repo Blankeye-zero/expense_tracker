@@ -1,7 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 class Expenselog extends StatelessWidget {
-  Expenselog(this.amount, this.expensetitle);
+  Expenselog(this.amount, this.expensetitle, {Key? expenselog})
+      : super(key: expenselog);
   String amount;
   String expensetitle;
   @override
