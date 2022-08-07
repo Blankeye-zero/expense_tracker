@@ -38,17 +38,24 @@ class _MyHomePageState extends State<MyHomePage> {
   String amount = '';
 
   String expense = '';
+
+  final listOfExpenses = <Widget>[];
+
   ListExpenses le = ListExpenses();
 
   @override
   Widget build(BuildContext context) {
+    // print(listOfExpenses);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-          child: ListView(
-        children: le.listOfExpenses,
+          child: ListView.builder(
+        itemBuilder: ((context, index) {
+          return listOfExpenses[index];
+        }),
+        itemCount: listOfExpenses.length,
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -89,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               amount = amtControl.text;
                               expense = titleControl.text;
                               Widget el = Expenselog(amount, expense);
-                              le.addToLe(el);
+                              le.addToLe(el, listOfExpenses);
                             });
                             Navigator.pop(context);
                           },
