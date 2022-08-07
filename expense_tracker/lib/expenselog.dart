@@ -1,9 +1,10 @@
 import 'package:flutter/widgets.dart';
 
 class Expenselog extends StatelessWidget {
-  Expenselog(this.amount, this.expensetitle);
-  String amount;
-  String expensetitle;
+  const Expenselog(this.amount, this.expensetitle, {Key? expenselog})
+      : super(key: expenselog);
+  final String amount;
+  final String expensetitle;
   @override
   Widget build(BuildContext context) {
     return Row(
